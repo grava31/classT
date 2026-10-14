@@ -5,14 +5,14 @@ export async function middleware(request: NextRequest) {
   let response = NextResponse.next({ request });
 
   const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    'https://mowsfliweugenzxxnggz.supabase.co',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1owsNmbGl3ZXVnZW56eHpubmd6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE5OTQ1NDcsImV4cCI6MjEwNzU3MDU0N30.BE56JZcZE1pzb6SA2IVaHEFuxS_gUjAsXyOdZEUQJZQ',
     {
       cookies: {
         getAll() {
           return request.cookies.getAll();
         },
-        setAll(cookiesToSet: any[]) {
+        setAll(cookiesToSet) {
           cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value));
           response = NextResponse.next({ request });
           cookiesToSet.forEach(({ name, value, options }) => response.cookies.set(name, value, options));
