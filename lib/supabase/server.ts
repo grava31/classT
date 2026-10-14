@@ -12,9 +12,11 @@ export async function createClient() {
         getAll() {
           return cookieStore.getAll();
         },
-        setAll(cookiesToSet: Parameters<ReturnType<typeof cookies>['set']>[0][]) {
+        setAll(cookiesToSet: any[]) {
           try {
-            cookiesToSet.forEach(({ name, value, options }) => cookieStore.set(name, value, options));
+            cookiesToSet.forEach(({ name, value, options }) => 
+              cookieStore.set(name, value, options)
+            );
           } catch {
             // يُستدعى من Server Component: يمكن تجاهله بأمان لأن middleware يحدّث الجلسة
           }
