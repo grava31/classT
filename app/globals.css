@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+@layer base {
+  body {
+    @apply bg-ios-bg text-ios-ink antialiased;
+    font-family: var(--font-arabic), -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  }
+  ::selection {
+    @apply bg-ios-blue/20;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply border-b border-black/5 bg-white/70 backdrop-blur-xl;
+  }
+
+  .card {
+    @apply rounded-4xl border border-black/5 bg-white p-6;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.06);
+  }
+
+  .btn {
+    @apply inline-flex h-11 select-none items-center justify-center gap-2 rounded-full px-5 text-[15px] font-medium transition duration-150 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply btn bg-ios-blue text-white hover:bg-ios-blueHover;
+  }
+
+  .btn-secondary {
+    @apply btn bg-black/5 text-ios-blue hover:bg-black/10;
+  }
+
+  .btn-danger {
+    @apply btn bg-ios-red/10 text-ios-red hover:bg-ios-red/20;
+  }
+
+  .input {
+    @apply h-11 w-full rounded-xl bg-ios-bg px-4 text-[15px] outline-none ring-1 ring-black/5 transition placeholder:text-ios-sub/60 focus:ring-2 focus:ring-ios-blue;
+  }
+
+  .textarea {
+    @apply min-h-[96px] w-full rounded-xl bg-ios-bg px-4 py-3 text-[15px] outline-none ring-1 ring-black/5 transition placeholder:text-ios-sub/60 focus:ring-2 focus:ring-ios-blue;
+  }
+
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-ios-sub;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium;
+  }
+
+  .eyebrow {
+    @apply text-sm font-medium text-ios-sub;
+  }
+}
